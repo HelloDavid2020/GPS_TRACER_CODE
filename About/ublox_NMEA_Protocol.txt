@@ -1,0 +1,49 @@
+
+// Disable GLL Message
+Length: 11, Data: B5 62 06 01 03 00 F0 01 00 FB 11 	
+
+// Enable GLL Message
+Length: 11, Data: B5 62 06 01 03 00 F0 01 01 FC 12 	
+
+
+
+// Disable GSA Message
+Length: 11, Data: B5 62 06 01 03 00 F0 02 00 FC 13 	
+// Enable GSA Message
+Length: 11, Data: B5 62 06 01 03 00 F0 02 01 FD 14 	
+
+
+// Disable VTG
+Length: 11, Data: B5 62 06 01 03 00 F0 05 00 FF 19 	
+
+// Enable VTG Message
+Length: 11, Data: B5 62 06 01 03 00 F0 05 01 00 1A 	
+
+
+
+
+$GPVTG,,T,,M,0.114,N,0.212,K,A*26
+$GPGGA,063029.00,3958.46687,N,11619.74987,E,1,07,1.53,106.0,M,-8.7,M,,*40
+$GPGSA,A,3,07,11,13,08,19,09,01,,,,,,2.47,1.53,1.95*04
+$GPGSV,4,1,14,01,41,172,29,03,33,059,20,06,15,060,21,07,66,243,46*78
+$GPGSV,4,2,14,08,49,305,43,09,38,308,23,11,66,162,32,13,05,212,43*73
+$GPGSV,4,3,14,19,56,044,27,22,04,058,12,26,07,319,,27,26,055,*76
+$GPGSV,4,4,14,28,23,299,,42,38,145,29*73
+$GPGLL,3958.46687,N,11619.74987,E,063029.00,A,A*60
+$GPRMC,063030.00,A,3958.46680,N,11619.74923,E,0.062,,220713,,,A*79
+
+
+// Disable GLL
+Length: 11, Data: B5 62 06 01 03 00 F0 01 00 FB 11 	
+
+// Disable GSA
+Length: 11, Data: B5 62 06 01 03 00 F0 02 00 FC 13 	
+
+// Dsiable GSV
+Length: 11, Data: B5 62 06 01 03 00 F0 03 00 FD 15 	
+
+// Disable VTG
+Length: 11, Data: B5 62 06 01 03 00 F0 05 00 FF 19 	
+
+
+

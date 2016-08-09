@@ -1,0 +1,125 @@
+// 	// 列出当前选择短信存储器 全部短信的序号和状态
+// 	if(AT_CommandRun("AT+CMGL=\"ALL\"\r\n", "OK", 5,1000)==AT_ERROR)
+// 		return AT_ERROR;		
+
+// 	if(AT_CommandRun("AT+CSCS=\"GSM\"\r\n", "OK", 10,1000)==AT_ERROR)
+// 		return AT_ERROR;	
+
+// 	if(AT_CommandRun("AT+CPMS=\"SM\"\r\n", "OK", 10,1000)==AT_ERROR)
+// 		return AT_ERROR;	
+
+// 	if(AT_CommandRun("AT+CNMI=2,2,0,0,1\r\n", "OK", 10,1000)==AT_ERROR)
+// 		return AT_ERROR;		
+
+// 	// 获取短信中心号码
+// 	if(AT_CommandRun("AT+CSCA?\r\n", "OK", 10,1000)==AT_ERROR)
+// 		return AT_ERROR;	
+
+uint8_t GPRS_TCPIP_Connect(uint8_t * IP_ADDR,uint8_t * IP_PORT) 
+中continue 是否是个死循环？
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	// 确认串口正常，波特率 =115200
+	if(AT_CommandRun("AT\r", "OK", 5,1000)==AT_ERROR)
+		return AT_ERROR;
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+	// 关闭回显
+	if(AT_CommandRun("ATE1\r", "OK", 5,1000)==AT_ERROR)
+		return AT_ERROR;
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+//	// 开启回显
+//	if(AT_CommandRun("ATE1\r", "OK", 5,1000)==AT_ERROR)
+//		return AT_ERROR;	
+//	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+	// 查询当前网络： CHINA MOBILE
+	if(AT_CommandRun("AT+COPS?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	// 查询当地网络信号强度，最大31，最小0
+	if(AT_CommandRun("AT+CSQ\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	// 网络注册及状态查询
+	if(AT_CommandRun("AT+CREG?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+	if(AT_CommandRun("AT+CGREG?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	if(AT_CommandRun("AT+CGATT?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+	
+	// 来电显示开启
+	if(AT_CommandRun("AT+CLIP=1\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;		
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	if(AT_CommandRun("AT+CNMI=2,1,0,0,0\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	
+	if(AT_CommandRun("AT+CMGF=0\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	if(AT_CommandRun("AT+CPMS?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;		
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	if(AT_CommandRun("AT+CSCA?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;		
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+
+////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+// 来电显示开启
+if(AT_CommandRun("AT+CLIP=1\r", "OK",5,1000)==AT_ERROR)
+	return AT_ERROR;		
+os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	
+///////////////////////////////////////////////////////////////////////////////////////////
+短信初始化
+	if(AT_CommandRun("AT+CNMI=2,1,0,0,0\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	
+	if(AT_CommandRun("AT+CMGF=0\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;	
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	if(AT_CommandRun("AT+CPMS?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;		
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+
+	if(AT_CommandRun("AT+CSCA?\r", "OK",5,1000)==AT_ERROR)
+		return AT_ERROR;		
+	os_dly_wait(50);  // 10MS *50 = 500 mS
+	
+	
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////////////////	
+// 		// 查询当前工作模式
+// 	if(AT_CommandRun("AT+CFUN=0\r\n", "OK",3,1000)==AT_ERROR)
+// 		return AT_ERROR;
+// 	
+// 	// 查询当前工作模式
+// 	if(AT_CommandRun("AT+CFUN?\r\n", "OK",3,1000)==AT_ERROR)
+// 		return AT_ERROR;				
+	
+	
+	
+	
+	
